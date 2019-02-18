@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchBar = props => {
     return (
-        <form>
+        <form className='search'>
             <input
              type='text'
              placeholder='search'
