@@ -29,8 +29,8 @@ class App extends React.Component {
           </div>
         </header>
         <div className='Post-container'>
-          {this.state.dummyData.map((datamap, index) => (
-            <PostContainer key={index} post={datamap} />
+          {this.state.dummyData.map((datamap) => (
+            <PostContainer key={datamap.timestamp} post={datamap} />
           ))}
         </div>
       </div>
