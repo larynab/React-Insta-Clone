@@ -5,9 +5,12 @@ import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import dummyData from './dummy-data';
+import CommentContainer from './components/CommentSection/CommentContainer';
+
 
 class App extends React.Component {
   constructor() {
+    console.log('Constructor running');
     super();
     this.state = {
       dummyData: dummyData,
@@ -20,7 +23,30 @@ class App extends React.Component {
     };
   };
 
+  componentDidMount() {
+    console.log('CDM running');
+    this.setState({dummyData: dummyData});
+  };
+
+  // shouldComponentUpdate(prevProps) {
+  //   console.log('SCU is blocking renders');
+  //   if (prevProps.someProp !== this.props.someProp) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   CDU checks for changing data, let's us do something based on the data that changed
+  //   console.log('CDU running');
+  //   if (prevProps.userID !== this.props.userID) {
+  //     console.log('Will never run....');
+  //     this.fetchUser(this.props.userID);
+  //   }
+  // }
+
   render() {
+    console.log('rendering App.js');
     return (
       <div className="App">
         <header className="App-header">
@@ -30,8 +56,11 @@ class App extends React.Component {
         </header>
         <div className='Post-container'>
           {this.state.dummyData.map((datamap) => (
-            <PostContainer key={datamap.timestamp} post={datamap} />
+            <PostContainer key={datamap.timestamp} post={datamap} />            
           ))}
+        </div>
+        <div>
+
         </div>
       </div>
     );
