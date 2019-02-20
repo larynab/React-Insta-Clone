@@ -10,14 +10,19 @@ const ToShow = authenticate(PostsPage)(LoginPage);
 
 class App extends React.Component {
   state = {
-    inputText: ""
+    inputText: "",
+    passWord: ""
   };
 
-  handleChanges = e => this.setState({ inputText: e.target.value });
+  handleChanges = e => {
+    this.setState({ inputText: e.target.valuea });
+    this.setState({ passWord: e.target.valueb});
+    };
 
   signIn = e => {
     e.preventDefault();
     localStorage.setItem("user", this.state.inputText);
+    localStorage.setItem("password", this.state.passWord);
     window.location.reload();
   };
 
@@ -28,9 +33,18 @@ class App extends React.Component {
         <ToShow />
         <input
           type="text"
-          value={this.state.inputText}
+          valuea={this.state.inputText}
           onChange={this.handleChanges}
+          placeholder="user"
         />
+        <br />
+        <input 
+          type="text"
+          valueb={this.state.passWord}
+          onChange={this.handleChanges}
+          placeholder="password"
+        />
+        <br />
         <button onClick={this.signIn}>Sign in</button>
       </div>
     );
