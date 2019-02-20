@@ -18,8 +18,7 @@ class CommentContainer extends React.Component {
 
   handleCommentSubmit = e => {
     e.preventDefault();
-    const newComment = { text: this.state.comment,
-     username: 'LarynaBillinghurst' };
+    const newComment = { text: this.state.comment, username: 'LarynaBillinghurst' };
     const comments = this.state.comments.slice();
     comments.push(newComment);
     this.setState({ comments, comment: '' });
