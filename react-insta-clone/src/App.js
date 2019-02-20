@@ -5,8 +5,7 @@ import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import PostContainer from './components/PostContainer/PostContainer';
 import dummyData from './dummy-data';
-import CommentContainer from './components/CommentSection/CommentContainer';
-
+import Post from './components/PostContainer/Post';
 
 class App extends React.Component {
   constructor() {
@@ -27,6 +26,11 @@ class App extends React.Component {
     console.log('CDM running');
     this.setState({dummyData: dummyData});
   };
+
+  // incrementLike = () => {
+  //   let likes = this.state.likes + 1;
+  //   this.setState({ likes });
+  // };
 
   // shouldComponentUpdate(prevProps) {
   //   console.log('SCU is blocking renders');
@@ -60,7 +64,7 @@ class App extends React.Component {
           ))}
         </div>
         <div>
-
+          {/* <Post /> */}
         </div>
       </div>
     );

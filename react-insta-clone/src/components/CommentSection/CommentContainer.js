@@ -8,7 +8,7 @@ class CommentContainer extends React.Component {
     super(props);
     this.state = {
       comments: props.comments,
-      comment: ''
+      comment: '',
     };
   }
 
@@ -26,7 +26,7 @@ class CommentContainer extends React.Component {
 
   render() {
     return (
-      <div className='Post-container'>
+      <div>
         {this.state.comments.map((c, i) => <Comment key={i} comment={c} />)}
         <AddComment 
           comment={this.state.comment}
