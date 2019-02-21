@@ -14,18 +14,18 @@ class Likes extends React.Component {
     this.setState({ likes });
   };
 
-  render() {
-    return (
-        <div>
-          <Like
-            incrementLike = {this.incrementLike} likes={this.state.likes}
-          ></Like>
-        </div>
-    );
-  };
-};
+//   render() {
+//     return (
+//         <div>
+//           <Like
+//             incrementLike = {this.incrementLike} likes={this.state.likes}
+//           ></Like>
+//         </div>
+//     );
+//   };
+// };
 
-class Like extends React.Component {
+// class Like extends React.Component {
   render() {
     return(
     <div>

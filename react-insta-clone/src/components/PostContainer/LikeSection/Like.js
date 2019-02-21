@@ -13,13 +13,6 @@ const Like = props => {
       <div className="like-section-wrapper">{props.likes}</div>
     </div>
   ];
-
-  // return (
-  //   <div>
-  //     <button onClick={props.incrementLike}><img id='heart'  src='https://heartbreaktriage.com/wp-content/uploads/gold-heart-icon-how-to-heal-a-broken-heart.png' alt='heart'  /></button>
-  //     <p><strong>{props.likes} likes</strong></p>
-  //   </div>
-  // );
 };
 
 export default Like;
