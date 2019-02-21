@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './PostContainer.css';
 import CommentContainer from '../CommentSection/CommentContainer';
-import Likes from './LikeSection/Like';
+import Likes from './LikeSection/Likes';
 import styled, { css } from 'styled-components';
 
 const WrapperDiv = styled.div`
@@ -27,31 +27,35 @@ const Button = styled.button`
     ${props => (props.type === 'warning' ? `background: #fdd835;` : null)}
 `;
 
-function PostContainer(props) {
- 
+class PostContainer extends React.Component {
+   constructor(props) {
+    super(props);
+    this.state = {
+      likes: props.post.likes
+    };
+  }
+  incrementLike = () => {
+    let likes = this.state.likes + 1;
+    this.setState({ likes });
+  };
+  render() {
     return (
         <WrapperDiv>
-            <p><img id='thumbnail' src={props.post.thumbnailUrl} alt={props.post.username} /><strong>{props.post.username}</strong></p>
-            <img src={props.post.imageUrl} alt={props.post.username} />
+            <p><img id='thumbnail' src={this.props.post.thumbnailUrl} alt={this.props.post.username} /><strong>{this.props.post.username}</strong></p>
+            <img src={this.props.post.imageUrl} alt={this.props.post.username} />
             <br />
-            <Likes incrementLike={props.incrementLike} likes={props.post.likes}/>
-            <CommentContainer  comments={props.post.comments} />
-            {/* <img id='heart' src='https://heartbreaktriage.com/wp-content/uploads/gold-heart-icon-how-to-heal-a-broken-heart.png' alt='heart' onClick={props.incrementLike} />
-            <p><strong>{props.post.likes} likes</strong></p> */}
-            {/* {props.post.comments
-                ? props.post.comments.map((comment, index) => (
-                    <Fragment key={index}>
-                        <p><strong>{comment.username}</strong> {comment.text}</p>
-                    </Fragment>
-                ))
-                : null}
-            <AddComment />     */}
+            <Likes
+              incrementLike={this.incrementLike}
+              likes={this.state.likes}
+            />
+            <CommentContainer  comments={this.props.post.comments} />
                   <Button type="primary">Primary</Button>
                   <Button type="success">Success</Button>
                   <Button type="danger">Danger</Button>
                   <Button type="warning">Warning</Button>
         </WrapperDiv>
     );
+  };  
 };
 
 PostContainer.propTypes = {
