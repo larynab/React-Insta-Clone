@@ -7,12 +7,17 @@ import Likes from './LikeSection/Likes';
 import styled, { css } from 'styled-components';
 
 const WrapperDiv = styled.div`
-    width: 100%;
+    width: 500px;
     height: 100%;
     border: 1px solid gold;
     color: red;
+    margin-bottom: 10px;
+    margin-top: 10px;
 `;
 
+const PostImg = styled.img`
+    width: 100%
+`;
 
 const Button = styled.button`
     padding: 6px 10px;
@@ -20,6 +25,9 @@ const Button = styled.button`
     border: none;
     border-radius: 3px;
     color: white;
+    &:hover {
+      padding: 0.5em 2em;
+    }
 
     ${props => (props.type === 'primary' ? `background: #2196f3;` : null)}
     ${props => (props.type === 'success' ? `background: #4caf50;` : null)}
@@ -42,17 +50,21 @@ class PostContainer extends React.Component {
     return (
         <WrapperDiv>
             <p><img id='thumbnail' src={this.props.post.thumbnailUrl} alt={this.props.post.username} /><strong>{this.props.post.username}</strong></p>
-            <img src={this.props.post.imageUrl} alt={this.props.post.username} />
+            <PostImg src={this.props.post.imageUrl} alt={this.props.post.username} />
             <br />
             <Likes
               incrementLike={this.incrementLike}
               likes={this.state.likes}
             />
             <CommentContainer  comments={this.props.post.comments} />
-                  <Button type="primary">Primary</Button>
-                  <Button type="success">Success</Button>
-                  <Button type="danger">Danger</Button>
-                  <Button type="warning">Warning</Button>
+            <br />
+            <p>Testing Buttons</p>
+            <Button type="primary">Primary</Button>
+            <Button type="success">Success</Button>
+            <Button type="danger">Danger</Button>
+            <Button type="warning">Warning</Button>
+            <br />
+            <p>End Testing</p>
         </WrapperDiv>
     );
   };  

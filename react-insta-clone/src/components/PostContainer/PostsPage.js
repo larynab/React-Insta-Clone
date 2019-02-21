@@ -24,7 +24,7 @@ class PostsPage extends React.Component {
   };
     render() {
         return(
-            <div>
+            <div className='Alpha'>
                 <header className="App-header">
                     <SearchBar />
                 </header>
